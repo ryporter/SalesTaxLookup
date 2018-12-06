@@ -4,6 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /*
+ * NOTE: This was my original implementation when I misunderstood the problem.
+ * I'm leaving in, because it is what I would use in production.  
+ * The implementation actually used for this problem is MyLruCache.
+ * 
  * Least Recently Used Cache.  That is, it kicks out the least recently used element
  * when a new element is added and the cache is at capacity.
  * 
@@ -11,7 +15,7 @@ import java.util.Map;
  * 
  * NB: Not Thread Safe
  */
-public class LruCache<A, B> extends LinkedHashMap<A, B> {
+public class LruCache<K, V> extends LinkedHashMap<K, V> {
     private static final long serialVersionUID = 1L;
     
     private final int maxEntries;
@@ -23,7 +27,7 @@ public class LruCache<A, B> extends LinkedHashMap<A, B> {
         this.maxEntries = maxEntries;
     }
 
-    @Override protected boolean removeEldestEntry(final Map.Entry<A, B> eldest) {
+    @Override protected boolean removeEldestEntry(final Map.Entry<K, V> eldest) {
         return (super.size() > maxEntries);
     }
 }

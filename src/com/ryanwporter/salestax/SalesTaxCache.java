@@ -31,7 +31,7 @@ package com.ryanwporter.salestax;
  */
 public class SalesTaxCache {
     
-    private final LruCache<StreetAddress, Double> cache = new LruCache<>(SalesTaxConstants.MAX_CACHE_ENTRIES);
+    private final MyLruCache<StreetAddress, Double> cache = new MyLruCache<>(SalesTaxConstants.MAX_CACHE_ENTRIES);
 
     public SalesTaxCache() { }
     
